@@ -9,11 +9,6 @@ import random
 import time
 import math
 
-##
-# 'ok' is niet een goede variabelenaam, bedoel je 'goede_letters'? Achteraf begrijp ik dat dit de streepjes met juiste letters zijn.
-# 'jorg' is ook niet een goede variabalenaam...
-##
-
 goede_letters = []
 fout = 0
 geraden = 0
@@ -21,13 +16,6 @@ geraden = 0
 #variabele waarin staat hoevaak je het fout geraden hebt
 #5 ifs voor de galg
 
-##
-# Je hebt deze methode, gebruik hem ook! Zet het stuk waarin je de galg tekent hierin. Noem het print_galg() of print_galg(fouten)
-##
-
-##
-# Tijdens het spelen zie ik niet welke letter ik al verkeerd heb geraden. Het is wel zo netjes die ook uit te printen!
-##
 ggl = ""
 fgl = ""
 #"goed/fout geraden lijst" voor alle letters goed/fout geraden door de speler
@@ -154,37 +142,39 @@ while True:
         if kies in ggl:
             print("")
             print("Deze letter heb je al eerder gekozen, probeer alsjeblieft een andere letter.")
-        lettergoed = False
-        for i in range(lengte):
-          if kies == geheimwoord[i]:
-            lettergoed = True
-            goede_letters[i] = kies
-            geraden = 1
-        if geraden == 1:
-            print("")              
-            print("Goed geraden! " + random.choice(goed_zinnen))
-            ggl = ggl + kies
-            print("") 
-            print("Deze heb je al goed geraden: ", ggl, " / Deze heb je fout geraden : ", fgl)
             print("")
-            geraden = 0
+        else:
+          lettergoed = False
+          for i in range(lengte):
+            if kies == geheimwoord[i]:
+              lettergoed = True
+              goede_letters[i] = kies
+              geraden = 1
+          if geraden == 1:
+              print("")              
+              print("Goed geraden! " + random.choice(goed_zinnen))
+              ggl = ggl + kies
+              print("") 
+              print("Deze heb je al goed geraden: ", ggl, " / Deze heb je fout geraden : ", fgl)
+              print("")
+              geraden = 0
 
-        if lettergoed == False:
-            fout += 1
-            print("")
-            print("Jammer. " + random.choice(fout_zinnen))
-            print("")
-            time.sleep(0.5)
-            fgl = fgl + kies
-            print("Deze heb je al goed geraden: ", ggl, " / Deze heb je fout geraden : ", fgl)
+          if lettergoed == False:
+              fout += 1
+              print("")
+              print("Jammer. " + random.choice(fout_zinnen))
+              print("")
+              time.sleep(0.5)
+              fgl = fgl + kies
+              print("Deze heb je al goed geraden: ", ggl, " / Deze heb je fout geraden : ", fgl)
 
-        if goede_letters == gw_lijst:
-            time.sleep(1)
-            print("")
-            print("Gefeliciteerd, je hebt gewonnen! Het programma sluit af in 10 seconden.")
-            time.sleep(10)
-            while True:
-                break
+          if goede_letters == gw_lijst:
+              time.sleep(1)
+              print("")
+              print("Gefeliciteerd, je hebt gewonnen! Het programma sluit af in 10 seconden.")
+              time.sleep(10)
+              while True:
+                  break
 
-         
-         
+           
+           
